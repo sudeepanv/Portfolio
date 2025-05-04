@@ -1638,6 +1638,15 @@ textarea.form-input::-webkit-resizer { display: none; }
     width: max-content;
     margin-left: auto;
   }
+  /* Styles for the confirmation message */
+#form-status {
+  display: none;          /* Initially hidden */
+  color: green;           /* Text color */
+  font-size: 16px;        /* Font size */
+  margin-top: 10px;       /* Space above the message */
+  font-weight: bold;      /* Make it bold */
+}
+
   
 }
 

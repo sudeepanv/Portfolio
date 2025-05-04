@@ -113,59 +113,21 @@ for (let i = 0; i < filterBtn.length; i++) {
 
 }
 
+  // const form = document.querySelector("[data-form]");
+  // const formBtn = document.querySelector("[data-form-btn]");
+  // const formStatus = document.getElementById("form-status");
 
+  // form.addEventListener("submit", function (e) {
+  //   e.preventDefault(); // prevent actual form submission
+  //   showConfirmation();
+  // });
 
-// contact form variables
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
-const formStatus = document.getElementById("form-status");
-
-// Enable button when form is valid
-formInputs.forEach(input => {
-  input.addEventListener("input", () => {
-    formBtn.disabled = !form.checkValidity();
-  });
-});
-
-// Google Apps Script Web App URL
-const scriptURL = "https://script.google.com/macros/s/AKfycbxg-26VXmGqcU1KJfvbohN200DZD9cM2RkTnf5ftexflcwZTwkbTzHxHPGLLZSVTcH8SQ/exec"; // replace this
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const data = {
-    name: form.name.value,
-    email: form.email.value,
-    message: form.message.value
-  };
-
-  try {
-    const response = await fetch(scriptURL, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
-
-    const result = await response.json();
-    if (result.status === "success") {
-      formStatus.style.display = "block";
-      formStatus.textContent = "Message sent successfully!";
-      form.reset();
-      formBtn.disabled = true;
-    } else {
-      throw new Error();
-    }
-  } catch (err) {
-    formStatus.style.display = "block";
-    formStatus.style.color = "red";
-    formStatus.textContent = "Failed to send message.";
-  }
-});
-
-
+  // function showConfirmation() {
+  //   setTimeout(() => {
+  //     form.reset();
+  //     formStatus.style.display = "block";
+  //   }, 500);
+  // }
 
 
 
